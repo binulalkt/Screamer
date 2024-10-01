@@ -1,0 +1,107 @@
+/* Global styles */
+body {
+    transform: rotate(-90deg);
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f6f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 125vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.graph-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#wave {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    top: 0;
+    left: 0;
+    background: repeating-linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.2) 10px,
+        rgba(0, 0, 0, 0.1) 10px,
+        rgba(0, 0, 0, 0.1) 20px
+    );
+    background-size: 200% 100%;
+    animation: wave-animation 2s linear infinite;
+}
+
+@keyframes wave-animation {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 0; }
+}
+
+#meter-bar {
+    /* position: absolute; */
+    bottom: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #167a91;
+    border-radius: 4px;
+    /* overflow: hidden; */
+    background-color: var(--meter-color, #13ade6);
+    transition: width 0.1s ease-in-out;
+    position: relative;
+}
+
+/* #wave-img {
+    transform: rotate(90deg);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+} */
+
+.waves {
+    transform: rotate(90deg);
+    position: absolute;
+    width: 800px;
+    height: 200px;
+    left: 760px;
+    top: 150px;
+}
+
+@keyframes waveAnimation {
+    0% {
+        transform: scaleX(1);
+    }
+    50% {
+        transform: scaleX(1.1);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+#meter-bar.animate {
+    animation: waveAnimation 1s ease-in-out infinite;
+}
+
+
+#meter-bar::before {
+    content: "";
+    display: block;
+    height: 100%;
+    background-color: var(--meter-color, #13ade6); /* Use variable for color */
+    transition: width 0.2s ease-in-out;
+    width: 0%; /* Initial width */
+}
+
+#sound-level {
+    font-size: 18px;
+    color: #333;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1;
+}

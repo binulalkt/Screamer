@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown</title>
+    <style>
+        body {
+            transform: rotate(-90deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #282c34;
+            color: #61dafb;
+        }
+
+        .countdown {
+            font-size: 5em;
+            animation: fadeInOut 1s ease-in-out infinite;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown">3</div>
+
+    <script>
+        const countdownElement = document.querySelector('.countdown');
+        let count = 3;
+
+        const countdownInterval = setInterval(() => {
+            count--;
+            if (count > 0) {
+                countdownElement.textContent = count;
+                countdownElement.style.animation = 'none';
+                countdownElement.offsetHeight; /* trigger reflow */
+                countdownElement.style.animation = null; 
+            } else {
+                clearInterval(countdownInterval);
+                window.location.href = 'index.html';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

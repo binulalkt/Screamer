@@ -1,0 +1,239 @@
+body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #f6f5f5;
+}
+
+.graph-container {
+    transform: rotate(-90deg);
+    transform-origin: center center;
+    width: 100vh; /* Full viewport height */
+    height: 100vw; /* Full viewport width */
+    /* background-image: url('./images/bg.png'); */
+    /* background: linear-gradient(to bottom, #a4b9c5, #002872), url('./images/bg.png'); */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(12, 46, 109, 0.452)), 
+                        url('./images/bg.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+#meter-bar {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%);
+    height: 0%;
+    width: 100%;
+    /* background-color: #167a91; */
+    /* background-color: var(--meter-color, #13ade6); */
+    background: linear-gradient(to bottom, rgba(75, 31, 11, 0.85), rgba(75, 31, 11, 0.85));
+    transition: height 0.3s ease-in-out;
+    opacity: 0.6;
+    /* position: relative; */
+}
+
+#wave-container {
+    position: relative;
+    width: 100%;
+    /* overflow-y: hidden; */
+}
+
+#wave1 {
+    display: none;
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    top: -10;
+    left: 0;
+    animation: waveMove 5s linear infinite;
+}
+
+#wave2 {
+    display: none;
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    top: -10;
+    left: 60px;
+    animation: waveMove 5s linear infinite;
+}
+
+#wave3 {
+    display: none;
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    top: -10;
+    left: 120px;
+    animation: waveMove 5s linear infinite;
+}
+
+@keyframes waveMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(10%); }
+}
+
+#logo {
+    /* display: none; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    
+    opacity: 0;
+    /* transition: opacity 0.5s ease; */
+}
+
+#logo-wrap {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    z-index: 300;
+    background: linear-gradient(to bottom, rgba(223, 217, 217, 0.5), rgb(186 185 210 / 0%));
+}
+
+/* bubbles */
+.bubble-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.bubble {
+    position: absolute;
+    bottom: 0;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    animation: bubble-animation 10s infinite ease-in;
+}
+
+@keyframes bubble-animation {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-1000px);
+        opacity: 0;
+    }
+}
+
+/* styled waves */
+
+/* div {
+    margin: auto;
+    width: 64px;
+    height: 64px;
+    overflow: hidden;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    box-shadow: 0 0 10px -5px #999;
+  } */
+
+  span {
+    display: block;
+    animation: tb 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  .one {
+    animation: lr 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    position: absolute;
+    top: -124px;
+    left: 0;
+  }
+  /* .two {
+    position: absolute;
+    top: -65px;
+    left: 0;
+    animation: lr 33s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+  } */
+
+  /* wave two */
+  .two {
+    animation: lr 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    position: absolute;
+    top: -84px;
+    left: 10;
+  }
+
+  .three {
+    animation: lr 20s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    position: absolute;
+    top: -64px;
+    left: 0;
+  }
+  
+  @keyframes lr {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-360px);
+    }
+  }
+  
+  @keyframes tb {
+    from {
+      transform: scaleY(0.75) translateY(10px);
+    }
+    to {
+      transform: scaleY(1) translateY(0);
+    }
+  }
+
+/* cloud */
+.cloud1 {
+    position: absolute;
+    left: 50%;
+    width: 300px;
+    animation: moveCloud 10s linear infinite reverse;
+}
+
+
+.cloud2 {
+    position: absolute;
+    top: 100px;
+    right: 60%;
+    width: 250px;
+    animation: moveCloud 10s linear infinite;
+}
+
+@keyframes moveCloud {
+    from {
+      transform: translateX(-10%);
+    }
+    to {
+      transform: translateX(50%);
+    }
+}

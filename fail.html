@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Failure</title>
+    <style>
+        body {
+            transform: rotate(-90deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .fail-container {
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .fail-message {
+            font-size: 4em;
+            margin: 0;
+            color: #e74c3c;
+            animation: shake 1s ease-in-out infinite;
+        }
+
+        .sub-message {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #bdc3c7;
+            animation: fadeInUp 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            50% { transform: translateX(10px); }
+            75% { transform: translateX(-10px); }
+        }
+
+        .rain {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 100%);
+            animation: rainFall 1s linear infinite;
+            opacity: 0.2;
+        }
+
+        @keyframes rainFall {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+    </style>
+</head>
+<body>
+    <div class="fail-container">
+        <div class="fail-message">You have failed</div>
+        <div class="sub-message">Try next time</div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            window.location.href = 'form.html';
+        }, 3000);
+        // Generate rain elements
+        for (let i = 0; i < 100; i++) {
+            const rain = document.createElement('div');
+            rain.classList.add('rain');
+            rain.style.left = `${Math.random() * 100}vw`;
+            rain.style.animationDuration = `${Math.random() * 2 + 1}s`;
+            rain.style.animationDelay = `${Math.random() * 2}s`;
+            document.body.appendChild(rain);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+body{
+    margin: 0;
+    padding: 0;
+    transform: rotate(-90deg);
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 100vh;
+    overflow: hidden    ;
+    
+}
+
+
+.main-form {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vh;
+    height: 100vw;
+    background-color: black;
+}
+
+.sub-form {
+    width: 35vw;
+    height: 70vh;
+    
+    background: rgb(42, 42, 79);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+}
+
+.custom-select {
+    position: relative;
+    width: 200px;
+    transform: rotate(90deg);
+    display: inline-block;
+  }
+  
+  .select-selected {
+    background-color: #e5e5e5;
+    padding: 8px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  .select-items {
+    position: absolute;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    z-index: 99;
+    width: 100%;
+    transform: rotate(-90deg); /* Rotate the options back */
+  }
+  
+  .select-items div {
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .select-hide {
+    display: none;
+  }
+  
+  .select-items div:hover {
+    background-color: #ddd;
+  }
+
+.sub-form input{
+    background: rgb(42, 42, 79);
+    color: rgb(124 132 155);
+    border-radius: 20px;
+    height: 40px;
+    padding: 10px;
+    width: 70%;
+    border: 1px solid rgb(124 132 155);
+    font-size: 16px;
+
+}
+
+#submit{
+    height: 54px;
+    width: 75%;
+    background: rgb(81 91 120);
+    border: 0;
+    color: white;
+}
+
+#submit:hover{
+    background: #ffcc00;
+}
+
+
+
+
+.animation-container {
+    position: relative;
+    margin: auto;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    top: 50%;
+    /* transform: translateY(-50%); */
+}
+
+.ball {
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 10px 5px #ffcc00;
+}
+
+.ball.glowing {
+    animation: orbit 5s linear infinite, glow 1s ease-in-out infinite alternate;
+}
+
+.ball:nth-child(1) {
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    left: 50%;
+    margin-top: -15px;
+    margin-left: -15px;
+    animation-duration: 5s;
+}
+
+.ball:nth-child(2) {
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+    margin-top: -40px;
+    margin-left: -45px;
+    animation-duration: 7s;
+}
+
+.ball:nth-child(3) {
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    left: 50%;
+    margin-top: -20px;
+    margin-left: -20px;
+    animation-duration: 10s;
+} 
+
+ .ball:nth-child(4) {
+    width: 45px;
+    height: 45px;
+    top: 50%;
+    left: 50%;
+    margin-top: -22.5px;
+    margin-left: -22.5px;
+    animation-duration: 15s;
+} 
+ .ball:nth-child(5) {
+    width: 45px;
+    height: 45px;
+    top: 50%;
+    left: 50%;
+    margin-top: -22.5px;
+    margin-left: -22.5px;
+    animation-duration: 15s;
+} 
+
+@keyframes orbit {
+    0% {
+        transform: rotate(0deg) translateY(300px) rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg) translateY(300px) rotate(-360deg);
+    }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 3px 3px #ffcc00;
+    }
+
+    100% {
+        box-shadow: 0 0 5px 5px #ffcc00;
+    }
+}
+
+.animation-reverse .ball.glowing {
+    animation-direction: reverse;
+}

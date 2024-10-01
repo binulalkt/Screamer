@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="form.css" />
+  </head>
+  <body>
+    <form method="post" action="" name="contact-form" id="contact-form">
+      <div class="animation-container" id="animationContainer">
+        <div class="ball glowing" style="width: 30px; height: 30px;"></div>
+        <div class="ball glowing" style="width: 50px; height: 50px;"></div>
+        <div class="ball glowing" style="width: 40px; height: 40px;"></div>
+        <div class="ball glowing" style="width: 45px; height: 45px;"></div>
+        <div class="ball glowing" style="width: 45px; height: 45px;"></div>
+        <div class="ball glowing" style="width: 45px; height: 45px;"></div>
+        <div class="ball glowing" style="width: 45px; height: 45px;"></div>
+        <div
+          class="main-form"
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+          "
+        >
+          <div class="sub-form">
+            <input type="text" name="name" placeholder="Name" id="name" />
+            <input
+              type="text"
+              name="contact"
+              placeholder="Contact"
+              id="contact"
+            />
+            <!-- <input type="text" name="gender" placeholder="Gender" id="gender" /> -->
+            <div style="display: flex;">
+              <label>
+                <input type="radio" id="gender1" name="gender" value="Male" > Male
+              </label>
+              <label>
+                <input type="radio" id="gender2" name="gender" value="Female"> Female
+              </label>
+            </div>
+            <input
+              type="submit"
+              value="Start Game"
+              id="submit"
+              class="start-game"
+            />
+          </div>
+        </div>
+      </div>
+    </form>
+    <script src="Google Sheet.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("contact-form");
+        const nameInput = document.getElementById("name");
+        const contactInput = document.getElementById("contact");
+        const genderInput = document.getElementById("gender1");
+        const submitButton = document.getElementById("submit");
+
+        // Focus the first input when the page loads
+        nameInput.focus();
+
+        // Add event listeners for keydown on each input
+        nameInput.addEventListener("keydown", function (event) {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            contactInput.focus();
+          }
+        });
+
+        contactInput.addEventListener("keydown", function (event) {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            genderInput.focus();
+          }
+        });
+
+        genderInput.addEventListener('focus', function() {
+          genderInput.checked = true;
+        });
+
+        // genderInput.addEventListener("keydown", function (event) {
+        //   if (event.key === "Enter") {
+        //     event.preventDefault();
+        //     submitButton.focus();
+        //     form.submit();
+        //   }
+        // });
+      });
+    </script>
+  </body>
+</html>

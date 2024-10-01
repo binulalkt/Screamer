@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations</title>
+    <style>
+        body {
+            transform: rotate(-90deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #282c34;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .congrats-container {
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .congrats-message {
+            font-size: 4em;
+            margin: 0;
+            animation: scaleUp 2s ease-in-out infinite;
+        }
+
+        .sub-message {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #61dafb;
+            animation: fadeInUp 2s ease-in-out infinite;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes scaleUp {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes fadeInUp {
+            0%, 100% { opacity: 0; transform: translateY(20px); }
+            50% { opacity: 1; transform: translateY(0); }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #61dafb;
+            top: -10px;
+            animation: fall 5s linear infinite;
+        }
+
+        @keyframes fall {
+            0% { top: -10px; opacity: 1; transform: rotate(0deg); }
+            100% { top: 110vh; opacity: 0; transform: rotate(720deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="congrats-container">
+        <div class="congrats-message">Congratulations <br> <span id="player-name"></span></div>
+        <div class="sub-message">You did it!</div>
+    </div>
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const name = localStorage.getItem('name');
+            console.log("name", name);
+        const playerName = document.getElementById('player-name');
+        playerName.textContent = name;
+    
+    setTimeout(() => {
+        window.location.href = 'form.html';
+    }, 3000);
+
+// Generate confetti elements
+for (let i = 0; i < 100; i++) {
+    const confetti = document.createElement('div');
+confetti.classList.add('confetti');
+confetti.style.left = `${Math.random() * 100}vw`;
+confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+confetti.style.animationDelay = `${Math.random() * 5}s`;
+document.body.appendChild(confetti);
+}
+});
+    </script>
+</body>
+</html>
